@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style1.css') }}">
+    <meta charset="utf-8">
+    <title>Song Recommender</title>
+  </head>
+  <body>
+  <center>
+
+  <div id="top">
+      <h1>Music Recommendation System</h1>
+    <div id="top2"><img src="{{ url_for('static', filename='icon.png') }}" width="70" height="70"><span>Musify</span></div>
+
+      <br>
+    <form method="POST" action="/index">
+      <label for="song_name">Enter the song:</label><br>
+      <input type="text" id="song_name" name="song_name" required>
+      <br>
+      <button type="submit" name="collab_search">Collaborative Search</button>
+      <br>
+      <button type="submit" name="similar_search">Similar Search</button>
+    </form>
+    </div>
+    </center>
+    {% if song_results %}
+      {% if collab_results %}
+        <h2>Collaborative Search Results for "{{ song_name }}"</h2>
+      {% elif similar_results %}
+        <h2>Similar Search Results for "{{ song_name }}"</h2>
+      {% endif %}
+      <div id="outer">
+        {% for result in song_results %}
+          <div class="songs"><img src="{{ url_for('static', filename='icon2.avif') }}" width="30" height="30">{{ result }}</div>
+        {% endfor %}
+      </div>
+    {% else %}
+  <center><h2 style="color:red; font-family:cursive">No such song found</h2></center>
+    {% endif %}
+  <form method="POST" action="/logout">
+    <button type="submit">Log Out</button>
+  </form>
+<footer>
+		<center><p id="foot">&copy; 2023 Musify. All rights reserved.</p></center>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Results</title>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 5px;
+			text-align: left;
+		}
+	</style>
+</head>
+<body>
+	<h1>Search Results for "{{ song_name }}"</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Song Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for song in song_results %}
+			<tr>
+				<td>{{ song }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<br>
+	<form action="#" method="POST">
+		<input type="hidden" name="song_name" value="{{ song_name }}">
+		<input type="submit" name="collab_filter" value="Collaborative Filtering Search">
+		<input type="submit" name="similar_song" value="Similar Song Search">
+	</form>
+</body>
+</html>

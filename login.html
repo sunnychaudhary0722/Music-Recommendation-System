@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<style>
+		body {
+			background-color: #f1f1f1;
+		}
+		form {
+			background-color: #fff;
+			max-width: 500px;
+			margin: 50px auto;
+			padding: 20px;
+			box-shadow: 0px 0px 10px #888;
+			border-radius: 10px;
+			text-align: center;
+		}
+		h1 {
+			text-align: center;
+			color: #555;
+		}
+		label {
+			display: block;
+			margin: 10px 0;
+			color: #555;
+		}
+		input[type="text"], input[type="password"] {
+			padding: 10px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			width: 90%;
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
+		button[type="submit"] {
+			padding: 10px;
+			border: none;
+			background-color: #4CAF50;
+			color: white;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+			margin-bottom: 20px;
+			width:20%;
+		}
+		button[type="submit"]:hover {
+			background-color: #45a049;
+		}
+		p {
+			color: red;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		#foot {
+		color:black;
+		}
+		#top {
+		margin-left: 45%;
+		}
+		span {
+		font-size: 30px;
+
+		}
+	</style>
+</head>
+<body>
+    <div id="top"><img src="{{ url_for('static', filename='icon.png') }}" width="70" height="70"><span>Musify</span></div>
+	<form method="POST" action="/">
+		<h1>Login</h1>
+		{% if error %}
+			<p>{{ error }}</p>
+		{% endif %}
+		<label>Username:</label>
+		<input type="text" name="username" required><br>
+		<label>Password:</label>
+		<input type="password" name="password" required><br>
+		<button type="submit">Login</button>
+		<div>Haven't Registered Yet? <a href="/signup">Register</a></div>
+	</form>
+    <footer>
+		<center><p id="foot">&copy; 2023 Musify. All rights reserved.</p></center>
+    </footer>
+
+</body>
+</html>

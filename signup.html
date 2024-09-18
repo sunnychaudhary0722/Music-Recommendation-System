@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+	<style>
+		body {
+			background-color: #f1f1f1;
+		}
+		form {
+			background-color: #fff;
+			max-width: 500px;
+			margin: 50px auto;
+			padding: 20px;
+			box-shadow: 0px 0px 10px #888;
+			border-radius: 10px;
+			text-align: center;
+		}
+		h1 {
+			text-align: center;
+			color: #555;
+		}
+		label {
+			display: block;
+			margin: 10px 0;
+			color: #555;
+		}
+		input[type="text"], input[type="password"] {
+			padding: 10px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			width: 90%;
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
+		input[type="submit"] {
+			padding: 10px;
+			border: none;
+			background-color: #4CAF50;
+			color: white;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
+		input[type="submit"]:hover {
+			background-color: #45a049;
+		}
+		#foot {
+		color:black;
+		}
+		#top {
+		margin-left: 45%;
+		}
+		span {
+		font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+    <div id="top"><img src="{{ url_for('static', filename='icon.png') }}" width="70" height="70"><span>Musify</span></div>
+	<form method="POST" action="/signup">
+		<h1>Sign Up</h1>
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username"><br><br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password"><br><br>
+		<input type="submit" value="Submit">
+	</form>
+<footer>
+		<center><p id="foot">&copy; 2023 Musify. All rights reserved.</p></center>
+    </footer>
+</body>
+</html>
